@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+asdfsdfsadfasdfsadfsdfasa<br/>
+{{ my_name }}<br/>
+{{ my_dict }}<br/>
+{{ my_str }}<br/>
+{{ my_list }}<br/>
+============================<br/>
+取值<br/>
+{#{{ my_list[0] }}<br/>#}
+{#{{ my_list.0 }}<br/>#}
+{#{{ my_dict['name'] }}<br/>#}
+=============================<br/>
+{{ 'itheima' | upper }}<br/>
+{{ 'ITHEIMA' | lower }}<br/>
+{{ 'itheima' | reverse }}<br/>
+{#flask特有的#}
+{{ 'itheima' | reverse | upper }}<br/>
+
+{#列表过滤器#}
+{{ my_list | last }}<br/>
+
+长度:{{ my_list | length }}<br/>
+排序:{{ my_list | sort }}<br/>
+<hr>
+html显示<br>
+{{ my_str }}<br>
+{{ my_str | escape }}<br/>
+
+{#默认html的字符串会按照原样显示,可以使用safe进行表示该字符串是安全的#}
+{#如果使用safe表示该字符串是安全的话,那么就按照html语言个事进行显示#}
+<hr>
+{#使用过滤器传参数#}
+总价:{{ my_dict_list | sum(attribute='price') }}
+
+<hr>
+
+{{ my_list | lireverse }}<br/>
+{{ my_list }}
+{#<hr>#}
+{#{% for item in my_list1 if item.id != 5 %}#}
+{#    {% if loop.index == 1 %}#}
+{#    <li style='background-color:orange '>{{ item.value }}</li>#}
+{#{% endfor %}#}
+<hr>
+宏<br>
+<form>
+    <label>用户名：</label><input type="text" name="username"><br/>
+    <label>身份证号：</label><input type="text" name="idcard"><br/>
+    <label>密码：</label><input type="password" name="password"><br/>
+    <label>确认密码：</label><input type="password" name="password2"><br/>
+    <input type="submit" value="注册">
+</form>
+
+{% macro input(label='',type='text', value='') %}
+<label>{{ label }}</label><input type="{{ type }}" name="{{ name }}" value="{{ value }}">
+{% endmacro %}
+
+<form>
+    {{ input('用户名:', name='username') }}
+</form>
+</body>
+</html>

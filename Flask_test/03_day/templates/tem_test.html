@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+字符串:<br>
+{{ my_str }}<br>
+列表:<br>
+{{ my_list }}<br>
+字典:<br>
+{{ my_dict }}<br>
+编号:<br>
+{{ my_id }}
+<hr>
+翻转列表:<br>
+{{ my_list | reverseself }}
+{#使用自定义过滤器实现列表背景色转换#}
+{% for item in my_list_color if item.id != 5%}
+    {{ item.id }}
+    <li style="background-color:{{ item.id | color }}">{{ item.value }}</li>
+
+{% endfor %}
+
+</body>
+
+</html>

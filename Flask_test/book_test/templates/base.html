@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<li>
+<h1>图书管理</h1>
+<form>
+    姓名:<input type="text" value="" name="username"><br>
+    书名:<input type="password" value="" name="bookname"><br>
+    <input type="submit" >
+
+</form>
+<hr>
+    {% for author in authors %}
+        <li>{{ author.name}}</li>
+        {% for book in author.books %}
+            <ul>
+                <li>{{ book.name }}<a href="">删除</a></li>
+            </ul>
+        {% endfor %}
+
+    {% endfor %}
+
+
+
+</body>
+</html>
